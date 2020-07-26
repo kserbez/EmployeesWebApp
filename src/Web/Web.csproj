@@ -29,6 +29,16 @@
     <None Remove="..\ClientApp\e2e\**" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="..\ClientApp\.editorconfig" />
+    <None Remove="..\ClientApp\angular.json" />
+    <None Remove="..\ClientApp\browserslist" />
+    <None Remove="..\ClientApp\package-lock.json" />
+    <None Remove="..\ClientApp\package.json" />
+    <None Remove="..\ClientApp\tsconfig.json" />
+    <None Remove="..\ClientApp\tslint.json" />
+  </ItemGroup>
+
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
     <!-- Ensure Node.js is installed -->
     <Exec Command="node --version" ContinueOnError="true">
