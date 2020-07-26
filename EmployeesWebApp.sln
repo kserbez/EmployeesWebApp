@@ -7,27 +7,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{CDE743F2-575
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeesWebApp", "src\EmployeesWebApp\EmployeesWebApp.csproj", "{7D97A230-846B-489A-8641-B993ED0694BA}"
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "ClientApp", "src\ClientApp\", "{7B035FF0-859D-4E71-81A3-8CEDBE0B0F63}"
-	ProjectSection(WebsiteProperties) = preProject
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
-		Debug.AspNetCompiler.VirtualPath = "/localhost_56107"
-		Debug.AspNetCompiler.PhysicalPath = "src\ClientApp\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_56107\"
-		Debug.AspNetCompiler.Updateable = "true"
-		Debug.AspNetCompiler.ForceOverwrite = "true"
-		Debug.AspNetCompiler.FixedNames = "false"
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/localhost_56107"
-		Release.AspNetCompiler.PhysicalPath = "src\ClientApp\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_56107\"
-		Release.AspNetCompiler.Updateable = "true"
-		Release.AspNetCompiler.ForceOverwrite = "true"
-		Release.AspNetCompiler.FixedNames = "false"
-		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "56107"
-		SlnRelativePath = "src\ClientApp\"
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,17 +17,12 @@ Global
 		{7D97A230-846B-489A-8641-B993ED0694BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7D97A230-846B-489A-8641-B993ED0694BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7D97A230-846B-489A-8641-B993ED0694BA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7B035FF0-859D-4E71-81A3-8CEDBE0B0F63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7B035FF0-859D-4E71-81A3-8CEDBE0B0F63}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7B035FF0-859D-4E71-81A3-8CEDBE0B0F63}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{7B035FF0-859D-4E71-81A3-8CEDBE0B0F63}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{7D97A230-846B-489A-8641-B993ED0694BA} = {CDE743F2-575D-4273-A900-AFE7B1F368C7}
-		{7B035FF0-859D-4E71-81A3-8CEDBE0B0F63} = {CDE743F2-575D-4273-A900-AFE7B1F368C7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A872F6D3-DA5C-41D3-B782-19DA266EEF31}
