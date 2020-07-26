@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
 
-using EmployeesWebApp.Entities;
+using Web.Entities;
 
 namespace Infrastructure.DataAccess
 {

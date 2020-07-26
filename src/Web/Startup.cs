@@ -10,7 +10,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.EntityFrameworkCore;
 using Infrastructure.DataAccess;
 
-namespace EmployeesWebApp
+namespace Web
 {
     public class Startup
     {
