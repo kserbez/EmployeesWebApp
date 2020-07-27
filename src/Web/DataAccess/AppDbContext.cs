@@ -11,8 +11,9 @@ namespace Infrastructure.DataAccess
     {
         public AppDbContext(DbContextOptions options) : base(options) { }
 
-        public DbSet<Employee> Employees { get; set; }
-        public DbSet<Position> Positions { get; set; }
+        public DbSet<Employee> Employee { get; set; }
+        public DbSet<Position> Position { get; set; }
+        public DbSet<EmployeePosition> EmployeePosition { get; set; }
 
     }
 }
