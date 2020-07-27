@@ -10,8 +10,8 @@ using Web.Entities;
 namespace Web.Controllers
 {
     [ApiController]
-    [Route("api/employees")]
-    public class EmployeeController
+    [Route("api/employee")]
+    public class EmployeeController : ControllerBase
     {
         public AppDbContext _db;
 
@@ -48,7 +48,7 @@ namespace Web.Controllers
         [HttpGet]
         public async Task<IEnumerable<Employee>> GetAllEmployees()
         {
-            IEnumerable<Employee> result = await _db.Employee.Where(x => true).ToArrayAsync();
+            IEnumerable<Employee> result = await _db.Employee.ToArrayAsync();
             return result;
         }
 
