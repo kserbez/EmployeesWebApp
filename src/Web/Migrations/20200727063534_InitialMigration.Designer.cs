@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Web.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20200727003840_init")]
-    partial class init
+    [Migration("20200727063534_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -29,6 +29,7 @@ namespace Web.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(100)")
                         .HasMaxLength(100);
 
@@ -40,6 +41,26 @@ namespace Web.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Employee");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Иван",
+                            Surname = "Маслов"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Александр",
+                            Surname = "Прыгунок"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Анастасия",
+                            Surname = "Капустина"
+                        });
                 });
 
             modelBuilder.Entity("Web.Entities.EmployeePosition", b =>
@@ -49,17 +70,20 @@ namespace Web.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<DateTime>("DateFrom")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DateTo")
+                        .HasColumnType("datetime2");
+
                     b.Property<int>("EmployeeId")
                         .HasColumnType("int");
-
-                    b.Property<DateTime>("EndDate")
-                        .HasColumnType("datetime2");
 
                     b.Property<int>("PositionId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("StartDate")
-                        .HasColumnType("datetime2");
+                    b.Property<decimal>("Sallary")
+                        .HasColumnType("decimal(12, 4)");
 
                     b.HasKey("Id");
 
@@ -68,6 +92,42 @@ namespace Web.Migrations
                     b.HasIndex("PositionId");
 
                     b.ToTable("EmployeePosition");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            DateFrom = new DateTime(2016, 10, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateTo = new DateTime(2018, 12, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EmployeeId = 1,
+                            PositionId = 2,
+                            Sallary = 1500m
+                        },
+                        new
+                        {
+                            Id = 2,
+                            DateFrom = new DateTime(2018, 12, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EmployeeId = 1,
+                            PositionId = 1,
+                            Sallary = 1500m
+                        },
+                        new
+                        {
+                            Id = 3,
+                            DateFrom = new DateTime(2016, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateTo = new DateTime(2019, 10, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EmployeeId = 2,
+                            PositionId = 3,
+                            Sallary = 600m
+                        },
+                        new
+                        {
+                            Id = 4,
+                            DateFrom = new DateTime(2015, 11, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EmployeeId = 3,
+                            PositionId = 4,
+                            Sallary = 1800m
+                        });
                 });
 
             modelBuilder.Entity("Web.Entities.Position", b =>
@@ -85,6 +145,28 @@ namespace Web.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Position");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Middle Dev"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Junior Dev"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Junior QA"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Name = "Senior BA"
+                        });
                 });
 
             modelBuilder.Entity("Web.Entities.EmployeePosition", b =>
