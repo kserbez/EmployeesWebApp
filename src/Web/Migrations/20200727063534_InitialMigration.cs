@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Web.Migrations
 {
-    public partial class init : Migration
+    public partial class InitialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,7 +13,7 @@ namespace Web.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(maxLength: 100, nullable: true),
+                    Name = table.Column<string>(maxLength: 100, nullable: false),
                     Surname = table.Column<string>(maxLength: 100, nullable: false)
                 },
                 constraints: table =>
@@ -40,10 +40,11 @@ namespace Web.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    PositionId = table.Column<int>(nullable: false),
                     EmployeeId = table.Column<int>(nullable: false),
-                    StartDate = table.Column<DateTime>(nullable: false),
-                    EndDate = table.Column<DateTime>(nullable: false)
+                    PositionId = table.Column<int>(nullable: false),
+                    Sallary = table.Column<decimal>(type: "decimal(12, 4)", nullable: false),
+                    DateFrom = table.Column<DateTime>(nullable: false),
+                    DateTo = table.Column<DateTime>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -60,6 +61,38 @@ namespace Web.Migrations
                         principalTable: "Position",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "Employee",
+                columns: new[] { "Id", "Name", "Surname" },
+                values: new object[,]
+                {
+                    { 1, "Иван", "Маслов" },
+                    { 2, "Александр", "Прыгунок" },
+                    { 3, "Анастасия", "Капустина" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Position",
+                columns: new[] { "Id", "Name" },
+                values: new object[,]
+                {
+                    { 1, "Middle Dev" },
+                    { 2, "Junior Dev" },
+                    { 3, "Junior QA" },
+                    { 4, "Senior BA" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "EmployeePosition",
+                columns: new[] { "Id", "DateFrom", "DateTo", "EmployeeId", "PositionId", "Sallary" },
+                values: new object[,]
+                {
+                    { 2, new DateTime(2018, 12, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 1, 1, 1500m },
+                    { 1, new DateTime(2016, 10, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2018, 12, 14, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, 2, 1500m },
+                    { 3, new DateTime(2016, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2019, 10, 22, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, 3, 600m },
+                    { 4, new DateTime(2015, 11, 11, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 3, 4, 1800m }
                 });
 
             migrationBuilder.CreateIndex(

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -11,15 +12,21 @@ namespace Web.Entities
         [Key]
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "Position is required!")]
-        public Position Position { get; set; }
 
         [Required(ErrorMessage = "Employee is required!")]
         public Employee Employee { get; set; }
 
+        [Required(ErrorMessage = "Position is required!")]
+        public Position Position { get; set; }
+
+
+        [Required(ErrorMessage = "Sallary is required!"), Column(TypeName = "decimal(12, 4)")]
+        public decimal Sallary { get; set; }
+
         [Required(ErrorMessage = "StartDate is required!")]
-        public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
+        public DateTime DateFrom { get; set; }
+
+        public DateTime? DateTo { get; set; }
 
     }
 }
