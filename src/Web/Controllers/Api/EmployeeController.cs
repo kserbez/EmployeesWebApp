@@ -8,8 +8,9 @@ using Web.Entities;
 
 namespace Web.Controllers.Api
 {
+    [ApiController]
     [Route("api/employee")]
-    public class EmployeeController
+    public class EmployeeController : ControllerBase
     {
         public AppDbContext _db;
 
@@ -41,7 +42,6 @@ namespace Web.Controllers.Api
             
             return employee;
         }
-
 
     }
 }
