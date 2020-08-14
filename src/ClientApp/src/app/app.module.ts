@@ -10,9 +10,18 @@ import { HomeComponent } from './components/home/home.component';
 import { CounterComponent } from './components/counter/counter.component';
 import { FetchDataComponent } from './components/fetch-data/fetch-data.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+
+// import { MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
+// import { MatFormField } from '@angular/material/form-field';
 import { DialogOverviewExample } from './components/dialog-overview-example/dialog-overview-example';
-import { MaterialModule } from './material.module';
+import { DialogOverviewExampleDialog } from './components/dialog-overview-example-dialog/dialog-overview-example-dialog';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +32,7 @@ import { MaterialModule } from './material.module';
     FetchDataComponent,
 
     DialogOverviewExample,
-    MaterialModule,
+    DialogOverviewExampleDialog,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -33,15 +42,24 @@ import { MaterialModule } from './material.module';
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
-      // { path: 'dialog-example', component: DialogOverviewExample },
+      { path: 'dialog-example', component: DialogOverviewExample },
     ]),
     NoopAnimationsModule,
+    BrowserAnimationsModule,
+
+    MatButtonModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
   ],
   providers: [
     // { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false} }
   ],
   bootstrap: [
     AppComponent
+  ],
+  entryComponents: [
+    DialogOverviewExampleDialog
   ]
 })
 export class AppModule { }

@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { DialogOverviewExampleDialog } from '../dialog-overview-example-dialog/dialog-overview-example-dialog';
 
 /**
- * @title Dialog Overview
+ * @title Dialog overview example
  */
 @Component({
   selector: 'dialog-overview-example',

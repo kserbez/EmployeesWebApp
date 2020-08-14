@@ -20,7 +20,7 @@ namespace Web.Controllers.Api
         }
 
         [HttpPost]
-        public async Task<Employee> SaveData([FromBody] Employee employee)
+        public async Task<Employee> Add([FromBody] Employee employee)
         {
             //Citation citation = new Citation();
             //try
