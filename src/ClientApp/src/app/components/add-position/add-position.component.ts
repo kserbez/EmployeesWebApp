@@ -8,16 +8,15 @@ export interface DialogData {
 }
 
 @Component({
-  selector: 'dialog-overview-example-dialog',
-  templateUrl: 'dialog-overview-example-dialog.html',
+  selector: 'add-position',
+  templateUrl: './add-position.component.html',
 })
-export class DialogOverviewExampleDialog {
-
+export class AddPositionComponent {
   constructor(
-    public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
+    public dialogRef: MatDialogRef<AddPositionComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
 
-  onNoClick(): void {
+  cancel(): void {
     this.dialogRef.close();
   }
 

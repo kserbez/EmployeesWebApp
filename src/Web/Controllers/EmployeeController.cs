@@ -1,13 +1,12 @@
 ﻿using Infrastructure.DataAccess;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Web.Entities;
 
-namespace Web.Controllers
+namespace Web.Controllers.Api
 {
     [ApiController]
     [Route("api/employee")]
@@ -16,40 +15,34 @@ namespace Web.Controllers
         public AppDbContext _db;
 
         public EmployeeController(AppDbContext db)
-        {
+        { 
             _db = db;
         }
 
-        //[HttpPost]
-        //public async Task<Employee> CreateEmployee([FromBody] Employee employee)
-        //{
-        //    Employee citation = new Employee();
-        //    try
-        //    {
-        //        //insert to DB to table Citation new citate
-        //        citation.allData = employee.otherData;
-        //        citation.idUser = _userManager.GetUserId(User);
-        //        citation.date = DateTime.Now;
-        //        _db.Citation.Add(citation);
-
-        //        await _db.SaveChangesAsync();
-        //        //call method for add author of citate
-        //        employee.authors = await SaveAuthorsForBibl(obj.authors, citation.id);
-        //        employee.date = citation.date;
-        //        employee.id = citation.id;
-        //    }
-        //    catch (Exception ex)
-        //    { employee.exeption = ex; }
-
-        //    return employee;
-        //}
-
-
         [HttpGet]
-        public async Task<IEnumerable<Employee>> GetAllEmployees()
+        public IEnumerable<Employee> Get()
         {
-            IEnumerable<Employee> result = await _db.Employee.ToArrayAsync();
-            return result;
+            return _db.Employee.ToList();
+        }
+
+        [HttpGet("{id}")]
+        public Employee Get(int id)
+        {
+            Employee product = _db.Employee.FirstOrDefault(x => x.Id == id);
+            return product;
+        }
+
+        [HttpPost]
+        public IActionResult Post(Employee employee) // [FromBody]
+        {
+            if (ModelState.IsValid)
+            {
+                _db.Employee.Add(employee);
+                _db.SaveChanges();
+                return Ok(employee);
+            }
+
+            return BadRequest(ModelState);
         }
 
     }

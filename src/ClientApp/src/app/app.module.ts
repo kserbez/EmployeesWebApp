@@ -3,12 +3,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 // import { RouterModule } from '@angular/router';
-
-import { AppComponent } from './app.component';
-// import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
-// import { HomeComponent } from './components/home/home.component';
-// import { CounterComponent } from './components/counter/counter.component';
-// import { FetchDataComponent } from './components/fetch-data/fetch-data.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -16,39 +10,37 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatTableModule } from '@angular/material/table';
 
-import { EmployeesComponent } from './components/employees/employees.component';
-import { DialogOverviewExampleDialog } from './components/dialog-overview-example-dialog/dialog-overview-example-dialog';
+// import { FetchDataComponent } from './components/fetch-data/fetch-data.component';
+import { AppComponent } from '~/app/app.component';
+import { EmployeesComponent } from '~/app/components/employees/employees.component';
+import { AddEmployeeComponent } from '~/app/components/add-employee/add-employee.component';
+import { AddPositionComponent } from '~/app/components/add-position/add-position.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    // NavMenuComponent,
-    // HomeComponent,
-    // CounterComponent,
     // FetchDataComponent,
-
+    AppComponent,
     EmployeesComponent,
-    DialogOverviewExampleDialog,
+    AddEmployeeComponent,
+    AddPositionComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
-    // RouterModule.forRoot([
-    //   { path: '', component: HomeComponent, pathMatch: 'full' },
-    //   { path: 'counter', component: CounterComponent },
-    //   { path: 'fetch-data', component: FetchDataComponent },
-    //   { path: 'dialog-example', component: EmployeesComponent },
-    // ]),
     NoopAnimationsModule,
     BrowserAnimationsModule,
-
+    // RouterModule.forRoot([
+    //   { path: 'fetch-data', component: FetchDataComponent },
+    // ]),
     MatButtonModule,
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
+    MatTableModule,
   ],
   providers: [
   ],
@@ -56,7 +48,9 @@ import { DialogOverviewExampleDialog } from './components/dialog-overview-exampl
     AppComponent,
   ],
   entryComponents: [
-    DialogOverviewExampleDialog, // https://stackoverflow.com/questions/56390787/angular-8-error-error-no-component-factory-found/56390853
+    // because https://stackoverflow.com/questions/56390787/angular-8-error-error-no-component-factory-found/56390853
+    AddEmployeeComponent,
+    AddPositionComponent,
   ]
 })
 export class AppModule { }
