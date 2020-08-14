@@ -9,7 +9,7 @@ This is a test task project. Created with ASP.NET Core 3.1 and Angular 8.
 
 ### 2.1 Clone the repository
 ```bash
-git clone https://github.
+git clone https://github.com/kserbez/EmployeesWebApp.git
 ```
 
 ### 2.2 Initialize database
