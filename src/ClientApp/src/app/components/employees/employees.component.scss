@@ -1,0 +1,14 @@
+.employees {
+  // margin: 30px auto 0 auto;
+
+  &__buttons-panel {
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+
+    button:first {
+      margin-right: 15px;
+    }
+  }
+
+}

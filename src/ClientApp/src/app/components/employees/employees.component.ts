@@ -6,11 +6,11 @@ import { DialogOverviewExampleDialog } from '../dialog-overview-example-dialog/d
  * @title Dialog overview example
  */
 @Component({
-  selector: 'dialog-overview-example',
-  templateUrl: 'dialog-overview-example.html',
-  styleUrls: ['dialog-overview-example.scss'],
+  selector: 'employees',
+  templateUrl: 'employees.component.html',
+  styleUrls: ['employees.component.scss'],
 })
-export class DialogOverviewExample {
+export class EmployeesComponent {
   animal: string;
   name: string;
 
