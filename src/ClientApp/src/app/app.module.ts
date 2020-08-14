@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-// import { RouterModule } from '@angular/router';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -12,7 +11,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 
-// import { FetchDataComponent } from './components/fetch-data/fetch-data.component';
 import { AppComponent } from '~/app/app.component';
 import { EmployeesComponent } from '~/app/components/employees/employees.component';
 import { AddEmployeeComponent } from '~/app/components/add-employee/add-employee.component';
@@ -21,7 +19,6 @@ import { AddPositionComponent } from '~/app/components/add-position/add-position
 
 @NgModule({
   declarations: [
-    // FetchDataComponent,
     AppComponent,
     EmployeesComponent,
     AddEmployeeComponent,
@@ -33,9 +30,6 @@ import { AddPositionComponent } from '~/app/components/add-position/add-position
     FormsModule,
     NoopAnimationsModule,
     BrowserAnimationsModule,
-    // RouterModule.forRoot([
-    //   { path: 'fetch-data', component: FetchDataComponent },
-    // ]),
     MatButtonModule,
     MatDialogModule,
     MatFormFieldModule,

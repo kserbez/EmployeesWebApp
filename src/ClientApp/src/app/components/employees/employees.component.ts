@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
 import { AddEmployeeComponent } from '~/app/components/add-employee/add-employee.component';
 import { AddPositionComponent } from '~/app/components/add-position/add-position.component';
+import { EmployeePosition } from '~/models/employee-position.model';
 
 
 export interface PeriodicElement {
@@ -24,7 +26,6 @@ const ELEMENT_DATA: PeriodicElement[] = [
 ];
 
 
-
 @Component({
   selector: 'employees',
   templateUrl: 'employees.component.html',
@@ -34,10 +35,16 @@ export class EmployeesComponent {
   animal: string;
   name: string;
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = ELEMENT_DATA;
+  displayedColumns: string[] = ['i', 'position', 'employee', 'salary'];
+  dataSource: EmployeePosition[] = [];
 
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog, http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
+    http.get<EmployeePosition[]>(baseUrl + `api/employee`).subscribe(result => {
+      console.log('%c Employees:', 'color: green');
+      console.log(result);
+      this.dataSource = result;
+    }, error => console.error(error));
+  }
 
   addEmployee(): void {
     const dialogRef = this.dialog.open(AddEmployeeComponent, {

@@ -42,7 +42,7 @@ namespace Web.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     EmployeeId = table.Column<int>(nullable: false),
                     PositionId = table.Column<int>(nullable: false),
-                    Sallary = table.Column<decimal>(type: "decimal(12, 4)", nullable: false),
+                    Salary = table.Column<decimal>(type: "decimal(12, 4)", nullable: false),
                     DateFrom = table.Column<DateTime>(nullable: false),
                     DateTo = table.Column<DateTime>(nullable: true)
                 },
@@ -86,7 +86,7 @@ namespace Web.Migrations
 
             migrationBuilder.InsertData(
                 table: "EmployeePosition",
-                columns: new[] { "Id", "DateFrom", "DateTo", "EmployeeId", "PositionId", "Sallary" },
+                columns: new[] { "Id", "DateFrom", "DateTo", "EmployeeId", "PositionId", "Salary" },
                 values: new object[,]
                 {
                     { 2, new DateTime(2018, 12, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 1, 1, 1500m },

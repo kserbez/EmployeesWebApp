@@ -20,8 +20,8 @@ namespace Web.Entities
         public Position Position { get; set; }
 
 
-        [Required(ErrorMessage = "Sallary is required!"), Column(TypeName = "decimal(12, 4)")]
-        public decimal Sallary { get; set; }
+        [Required(ErrorMessage = "Salary is required!"), Column(TypeName = "decimal(12, 4)")]
+        public decimal Salary { get; set; }
 
         [Required(ErrorMessage = "StartDate is required!")]
         public DateTime DateFrom { get; set; }

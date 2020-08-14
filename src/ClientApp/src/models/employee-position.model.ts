@@ -5,7 +5,7 @@ export interface EmployeePosition {
   id: number;
   employee: Employee;
   position: Position;
-  sallary: number;
+  salary: number;
   dateFrom: any;
   dateTo: any | null;
 };

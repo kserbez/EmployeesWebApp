@@ -80,7 +80,7 @@ namespace Web.Migrations
                     b.Property<int>("PositionId")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("Sallary")
+                    b.Property<decimal>("Salary")
                         .HasColumnType("decimal(12, 4)");
 
                     b.HasKey("Id");
@@ -99,7 +99,7 @@ namespace Web.Migrations
                             DateTo = new DateTime(2018, 12, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EmployeeId = 1,
                             PositionId = 2,
-                            Sallary = 1500m
+                            Salary = 1500m
                         },
                         new
                         {
@@ -107,7 +107,7 @@ namespace Web.Migrations
                             DateFrom = new DateTime(2018, 12, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EmployeeId = 1,
                             PositionId = 1,
-                            Sallary = 1500m
+                            Salary = 1500m
                         },
                         new
                         {
@@ -116,7 +116,7 @@ namespace Web.Migrations
                             DateTo = new DateTime(2019, 10, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EmployeeId = 2,
                             PositionId = 3,
-                            Sallary = 600m
+                            Salary = 600m
                         },
                         new
                         {
@@ -124,7 +124,7 @@ namespace Web.Migrations
                             DateFrom = new DateTime(2015, 11, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EmployeeId = 3,
                             PositionId = 4,
-                            Sallary = 1800m
+                            Salary = 1800m
                         });
                 });
 

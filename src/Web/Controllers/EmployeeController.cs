@@ -1,5 +1,6 @@
 ﻿using Infrastructure.DataAccess;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,16 +21,22 @@ namespace Web.Controllers.Api
         }
 
         [HttpGet]
-        public IEnumerable<Employee> Get()
+        public IEnumerable<EmployeePosition> Get()
         {
-            return _db.Employee.ToList();
+            var result = _db.EmployeePosition
+                .Include(x => x.Employee)
+                .Include(x => x.Position)
+                .Where(x => !x.DateTo.HasValue).ToList();
+            return result;
         }
 
         [HttpGet("{id}")]
-        public Employee Get(int id)
+        public EmployeePosition Get(int id)
         {
-            Employee product = _db.Employee.FirstOrDefault(x => x.Id == id);
-            return product;
+            var result = _db.EmployeePosition
+                .Where(x => x.Employee.Id == id && !x.DateTo.HasValue)
+                .FirstOrDefault();
+            return result;
         }
 
         [HttpPost]

@@ -38,7 +38,7 @@ namespace Infrastructure.DataAccess
                     Id = 1,
                     EmployeeId = 1,
                     PositionId = 2,
-                    Sallary = 1500m,
+                    Salary = 1500m,
                     DateFrom = new DateTime(2016, 10, 22),
                     DateTo = new DateTime(2018, 12, 14),
                 },
@@ -47,7 +47,7 @@ namespace Infrastructure.DataAccess
                     Id = 2,
                     EmployeeId = 1,
                     PositionId = 1,
-                    Sallary = 1500m,
+                    Salary = 1500m,
                     DateFrom = new DateTime(2018, 12, 15),
                 },
                 new
@@ -55,7 +55,7 @@ namespace Infrastructure.DataAccess
                     Id = 3,
                     EmployeeId = 2,
                     PositionId = 3,
-                    Sallary = 600m,
+                    Salary = 600m,
                     DateFrom = new DateTime(2016, 5, 1),
                     DateTo = new DateTime(2019, 10, 22),
                 },
@@ -64,7 +64,7 @@ namespace Infrastructure.DataAccess
                     Id = 4,
                     EmployeeId = 3,
                     PositionId = 4,
-                    Sallary = 1800m,
+                    Salary = 1800m,
                     DateFrom = new DateTime(2015, 11, 11),
                 }
             );
