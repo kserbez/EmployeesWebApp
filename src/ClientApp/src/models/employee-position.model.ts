@@ -6,6 +6,6 @@ export interface EmployeePosition {
   employee: Employee;
   position: Position;
   salary: number;
-  dateFrom: any;
-  dateTo: any | null;
+  dateFrom: Date;
+  dateTo: Date | null;
 };

@@ -35,14 +35,19 @@ export class EmployeesComponent {
   animal: string;
   name: string;
 
-  displayedColumns: string[] = ['i', 'position', 'employee', 'salary'];
-  dataSource: EmployeePosition[] = [];
+  displayedColumns: string[] = ['i', 'position', 'employee', 'salary', 'dateFrom', 'dateTo'];
+  dataSource = [];
 
   constructor(public dialog: MatDialog, http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
     http.get<EmployeePosition[]>(baseUrl + `api/employee`).subscribe(result => {
       console.log('%c Employees:', 'color: green');
-      console.log(result);
-      this.dataSource = result;
+      this.dataSource = result.map((x, i) => {
+        return {
+          ...x,
+          i: i + 1,
+        };
+      });
+      console.log(this.dataSource);
     }, error => console.error(error));
   }
 
