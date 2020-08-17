@@ -12,12 +12,13 @@ export interface DialogData {
 @Component({
   selector: 'add-position',
   templateUrl: './add-position.component.html',
+  styleUrls: ['add-position.component.scss'],
 })
 export class AddPositionComponent {
-  constructor( private dialogRef: MatDialogRef<AddPositionComponent>,
-               private snackBar: MatSnackBar,
-               @Inject('BASE_URL') private baseUrl: string,
-               private http: HttpClient) {}
+  constructor(private dialogRef: MatDialogRef<AddPositionComponent>,
+              private snackBar: MatSnackBar,
+              @Inject('BASE_URL') private baseUrl: string,
+              private http: HttpClient) {}
 
   positionName: string = '';
 

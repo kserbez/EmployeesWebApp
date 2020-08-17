@@ -9,8 +9,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 
 import { AppComponent } from '~/app/app.component';
 import { EmployeesComponent } from '~/app/components/employees/employees.component';
@@ -35,6 +39,9 @@ import { AddPositionComponent } from '~/app/components/add-position/add-position
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
+    MatSelectModule,
     MatTableModule,
     MatSnackBarModule,
   ],
