@@ -19,7 +19,7 @@
     </mat-form-field>
     <mat-select>
       <mat-option *ngFor="let currentPosition of allPositions" [value]="position">
-        {{currentPosition}}
+        {{currentPosition.name}}
       </mat-option>
     </mat-select>
     <span>Должность</span>

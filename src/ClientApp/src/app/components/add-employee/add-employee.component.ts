@@ -26,9 +26,15 @@ export class AddEmployeeComponent {
   dateTo: Date | null;
 
   ngOnInit() {
-    // TODO fetch all positions
+    this.http.get<Position[]>(this.baseUrl + 'api/position').subscribe(result => {
+        console.log('%c allPositions:', 'color: green');
+        this.allPositions = result;
+        console.log(this.allPositions);
+      }, error => {
+        console.error(`При загрузке всех должно стей произошла ошибка: ${error.message}`);
+      }
+    );
   }
-
 
   close(): void {
     this.dialogRef.close();
