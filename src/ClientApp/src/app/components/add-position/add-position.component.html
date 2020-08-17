@@ -1,11 +1,11 @@
 <h1 mat-dialog-title>Новая должность</h1>
 <div mat-dialog-content>
-  <!-- <p>What's your favorite animal?</p>
   <mat-form-field>
-    <input matInput [(ngModel)]="data.animal">
-  </mat-form-field> -->
+    <input matInput [(ngModel)]="positionName">
+  </mat-form-field>
+  <span>Должность</span>
 </div>
 <div mat-dialog-actions>
-  <button mat-button (click)="cancel()">Закрыть</button>
-  <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Добавить</button>
+  <button mat-button (click)="close()">Закрыть</button>
+  <button mat-button (click)="addPosition()" [disabled]="positionName.length < 1">Добавить</button>
 </div>

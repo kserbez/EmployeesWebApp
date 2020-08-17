@@ -33,13 +33,22 @@ namespace Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post(Position position) // [FromBody]
+        public IActionResult Post(Position position)
         {
             if (ModelState.IsValid)
             {
-                _db.Position.Add(position);
-                _db.SaveChanges();
-                return Ok(position);
+                bool alreadyExists = !(_db.Position.FirstOrDefault(x => x.Name == position.Name) is null);
+                
+                if (!alreadyExists)
+                {
+                    _db.Position.Add(position);
+                    _db.SaveChanges();
+                    return Ok(position);
+                } else
+                {
+                    return Conflict("Already exists!");
+                }
+                
             }
 
             return BadRequest(ModelState);

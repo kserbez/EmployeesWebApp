@@ -10,6 +10,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 import { AppComponent } from '~/app/app.component';
 import { EmployeesComponent } from '~/app/components/employees/employees.component';
@@ -35,6 +36,7 @@ import { AddPositionComponent } from '~/app/components/add-position/add-position
     MatFormFieldModule,
     MatInputModule,
     MatTableModule,
+    MatSnackBarModule,
   ],
   providers: [
   ],
